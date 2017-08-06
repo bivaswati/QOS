@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <title>Video QOS</title>
+    <link rel="stylesheet" type="text/css" href="css/demo.css"/>
+    <link rel="stylesheet" type="text/css" href="css/set1.css"/>
+    <script type="text/javascript" src="Scripts/angular.js"></script>
+    <script type="text/javascript" src="Scripts/ng-sdncoe.js"></script>
+    <script type="text/javascript" src="Scripts/jquery-1.8.2.js"></script>
+</head>
+<body ng-app="sdnCoeApp" ng-controller="mySdnController">
+<div id="mysdn">
+    <table style="width: 100%">
+        <tr>
+            <td align="justify">
+                <table style="width: 100%">
+                    <tr>
+                        <td><img src="img/wipro.jpg" align="left" style="width:121px;height:120px;"/></td>
+                        <td style="width: 100%">
+                            <header class="codrops-header">
+                                <h1 align="center">{{initVar.welcomeMessage}}</h1>
+                                <h4 align="center">
+                                    <span>{{initVar.welcomeTag}}</span>
+                                </h4>
+                                <h4>
+                                    <table width="50%" align="center">
+                                        <tr>
+                                            <td id="link_status" align="center" no-wrap>&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                </h4>
+                            </header>
+                        </td>
+                        <td><img src="img/logo1.png" align="left"/></td>
+                    </tr>
+                </table>
+                <div align="center">
+                    <loading></loading>
+                    <error>{{error1}} {{error}} {{error2}}</error>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="content" id="content">
+                    <h2>Channels</h2>
+                    <div class="grid">
+                        <figure class="effect-winston"
+                                ng-repeat="chnls in channelLstNames"
+                                ng-click="createchannelArray(chnls.name)">
+                            <img src={{chnls.logo}} alt="img01"/>
+                            <figcaption>
+                                <h2>{{chnls.name}}</h2>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            <td>
+        </tr>
+    </table>
+</div>
+<div id="player" align="center" style="display:none">
+    <table width="100">
+        <tr>
+            <div>
+                <td align="center">
+                    <video id="video1" controls="controls" poster="img/bg.jpg"
+                           type="video/ogg" width="700"> Your browser does not
+                        support HTML5 video.
+                    </video>
+                </td>
+                <td>
+                    &nbsp;
+                </td>
+            </div>
+        </tr>
+        <tr>
+            <td width="50">
+                <div id="button">
+                    <button id="return" align="right" ng-click="redirect2()">
+                        <img width="30" src="img/return.png">
+                    </button>
+                </div>
+            </td>
+            <td widyh="50">
+                <button id="sdnvideo" align="left" ng-click="sdnvideo(connectToServer)">
+                    <img src="img/sdnHD.png"></button>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

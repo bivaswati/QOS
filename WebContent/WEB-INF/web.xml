@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/j2ee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+         id="WebApp_ID" version="2.4">
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+	<servlet>
+		<servlet-name>s1</servlet-name>
+		<servlet-class>com.qos.servlet.session.LoginServlet</servlet-class>
+		 <load-on-startup>1</load-on-startup> 
+	</servlet>
+	<servlet>
+		<servlet-name>SDNCOE</servlet-name>
+		<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+		<init-param>
+			<param-name>com.sun.jersey.config.property.packages</param-name>
+			<param-value>com.restJersy.first</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet>
+		<display-name>EventPollServlet</display-name>
+		<servlet-name>EventPollServlet</servlet-name>
+		<servlet-class>com.restJersy.first.EventPollServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>SDNCOE</servlet-name>
+		<url-pattern>/rest/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>EventPollServlet</servlet-name>
+		<url-pattern>/EventPollServlet</url-pattern>
+	</servlet-mapping>
+    <!--Added here-->
+</web-app>
